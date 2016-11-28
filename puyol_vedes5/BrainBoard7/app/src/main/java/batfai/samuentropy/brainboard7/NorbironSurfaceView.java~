@@ -97,7 +97,7 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
         int orientationNew = getResources().getConfiguration().orientation;
 
         if (orientationOld != orientationNew) {
-            
+            //newBox();
             norbironMap.setSurfaceView(this);
         } else {
             int defaultValue = 1111;
@@ -106,10 +106,11 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
             if (selectedNodeType != defaultValue) {
 
                 int i = bundle.getInt("selectedNode");
-                norbironMap.addProc(i, 0,3); 
+                norbironMap.addProc(i, 0,3); //beállítja az id-jét ennek az éppen létrehozott nodenak.
             }
         }
-	Check.orientation = orientationNew;
+Check.orientation = orientationNew;
+	//intent.removeExtra("selectedNode");
         norbironMap.saveMapToServer(currentUser);
         surfaceHolder = getHolder();
         surfaceHolder.addCallback(new SurfaceEvents(this));
